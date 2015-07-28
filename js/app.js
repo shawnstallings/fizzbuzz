@@ -1,10 +1,30 @@
 $(function() {
 
 	
-	//Create the list of numbers 1 -100
-	$("#go").on('click', function() {
-	
-		for (var number = 1; number < 101; number++) {
+	$('#go').on('click', function() {
+		
+	var input = $('#enter').val();
+		console.log("Input=" + input);
+
+	var numb = (+ input)
+		console.log(typeof numb);
+
+		if (numb == parseInt(numb)) {
+			alert("Thank you");
+		}
+		else if (numb % 1 != 0) {
+			$('#enter').val('');
+			var numb = 0;
+			alert("Please enter number without any decimals");
+		}
+
+		else {
+			$('#enter').val('');
+			alert("Please enter a number");
+			
+		}
+		
+		for (var number = 1; number <= numb; number++) {
 			$('#here').append('<p class="numb">' + number + '</p>');
 		}
 	
