@@ -2,38 +2,30 @@ $(function() {
 
 	
 	$('#go').on('click', function() {
-		
-	var input = $('#enter').val();
-		console.log("Input=" + input);
-
-	var numb = (+ input)
-		console.log(typeof numb);
-
-		if (numb == parseInt(numb)) {
-			alert("Thank you");
-		}
-		else if (numb % 1 != 0) {
+	// get value from input field	
+	    
+        var str = $('#enter').val();
+			
+		if (str % 1 != 0) {
 			$('#enter').val('');
-			var numb = 0;
-			alert("Please enter number without any decimals");
-		}
-
+			var str = 0;
+			alert("Please enter number (no decimals).");
+        }	
 		else {
 			$('#enter').val('');
-			alert("Please enter a number");
-			
 		}
 		
-		for (var number = 1; number <= numb; number++) {
+		// created numbered list based on input number as stop point
+		for (var number = 1; number <= str; number++) {
 			$('#here').append('<p class="numb">' + number + '</p>');
 		}
 	
 		$('.numb').each(function() {
-			//make sure variable is a number with parseInt()
+			//make sure appended variable is a number
 			var n = parseInt($(this).text());
 				console.log(typeof n);
 			
-			//apply rules for numbers changed to words
+			//apply rules for numbers to change to words
 			if (n % 3 === 0 && n % 5 === 0) {
 				$(this).text("FizzBuzz");
 			}
