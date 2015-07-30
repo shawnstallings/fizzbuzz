@@ -1,23 +1,18 @@
 $(function() {
 
-	
-	$('#go').on('click', function() {
-	// get value from input field	
-	    
-        var str = $('#enter').val();
-			
-		if (str % 1 != 0) {
-			$('#enter').val('');
-			var str = 0;
-			alert("Please enter number (no decimals).");
-        }	
-		else {
-			$('#enter').val('');
-		}
+	var str = prompt("Please enter a number.")
 		
-		// created numbered list based on input number as stop point
-		for (var number = 1; number <= str; number++) {
-			$('#here').append('<p class="numb">' + number + '</p>');
+
+	//var str = $('#enter').val();
+			
+	if (str % 1 != 0) {
+			var str = prompt("Please enter number (no decimals).");
+    }	
+				
+	// created numbered list based on input number as stop point
+	for (var number = 1; number <= str; number++) {
+		console.log(number);
+		$('#here').append('<p class="numb">' + number + '</p>');
 		}
 	
 		$('.numb').each(function() {
@@ -41,7 +36,5 @@ $(function() {
 			else {
 				$(this).text();
 			}
-	})	
-
-	})
+		});	
 });
